@@ -1,8 +1,8 @@
 import React from 'react'
 
-function QuizButton({text, text_bold}) {
+function QuizButton({text, text_bold, smiley}) {
     return (
-        <button>{text} {text_bold}</button>
+        <button class="button-default">{text} <span class="font-i font-b font-up">{text_bold}</span> {smiley}</button>
     )
 }
 

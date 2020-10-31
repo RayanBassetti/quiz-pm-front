@@ -5,7 +5,6 @@ import Home from './home/Home';
 function App() {
   return (
     <>
-    <p>Le Quiz FUNFUNFUN</p>
     <Home />
     </>
   );

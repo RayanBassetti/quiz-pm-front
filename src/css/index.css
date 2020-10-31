@@ -1,3 +1,17 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+* body {
+  font-family: 'Lato' !important;
+}
+
+html, body, #app {
+  height:100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +24,84 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html .col-md-4, html .col-md-8 {
+  padding-left:0;
+  padding-right:0;
+}
+
+.full-height {
+  height:100vh
+}
+
+.center-elem {
+  text-align:center;
+  height:100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.font-up {
+  text-transform: uppercase;
+}
+
+.font-i {
+  font-style:italic;
+}
+
+.font-b {
+  font-weight:bold;
+}
+
+.font-s-40 {
+  font-size:40px;
+}
+
+.font-s-24 {
+  font-size:24px;
+}
+
+.font-w-700 {
+  font-weight:700;
+}
+
+.font-w-300 {
+  font-weight:300; /* Manque le font-weight 300 pour le Lato */
+}
+
+.button-default {
+  background-color:#888888;
+  border:3px solid #888888;
+  color:#fff;
+  padding:8px 32px;
+  text-align:center;
+  width:fit-content;
+  text-decoration:none;
+  display:inline-block;
+  transition:0.4s;
+}
+
+.button-default:hover {
+  background-color:#fff;
+  color:#888;
+}
+
+
+
+
+.bg-accueil {
+  background-image:url("../img/mims.png");
+  height:100%;
+  width:100%;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.accueil-choix {
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
