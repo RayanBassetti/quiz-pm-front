@@ -72,8 +72,8 @@ function UsersContextProvider({children}) {
 
     return (
         <UsersContext.Provider value={{
-            loading: loading,
-            users: users,
+            loading: loading, // à utiliser pour chargement des utilisateurs
+            users: users, // à utiliser pour sortir les utilisateurs de la BDD
             score: score,
             username: username,
             setScore: setScore,
