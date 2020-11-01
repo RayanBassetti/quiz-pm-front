@@ -1,12 +1,14 @@
 import React from 'react'
 
-function QuizProgression() {
+function QuizProgression({quizLength}) {
+    const length = quizLength.length
+    console.log(length)
     return (
-        <div>
-            <p>Question 1</p>
-            <p>Question 2</p>
-            <p>Question 3</p>
-        </div>
+        <ul>
+            <li>Question 1</li>
+            <li>Question 2</li>
+            <li>Question 3</li>
+        </ul>
     )
 }
 
