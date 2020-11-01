@@ -1,9 +1,13 @@
 import '../css/App.css';
 import RoutingSwitch from './routes/RoutingSwitch'
 
+import UsersContextProvider from './contexts/UsersContext'
+
 function App() {
   return (
-    <RoutingSwitch />
+    <UsersContextProvider>
+      <RoutingSwitch />
+    </UsersContextProvider>
   );
 }
 
