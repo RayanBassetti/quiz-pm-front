@@ -48,8 +48,8 @@ function Quiz() {
         
     return (
         <>
-            <QuizProgression quizLength={data}/>
-            <QuizContent quiz={data}/>
+            <QuizProgression quizData={data}/>
+            <QuizContent quizData={data}/>
         </>
     )
 }
