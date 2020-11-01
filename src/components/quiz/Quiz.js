@@ -1,8 +1,13 @@
 import React from 'react'
+import QuizProgression from './QuizProgression'
+import QuizContent from './QuizContent'
 
 function Quiz() {
     return (
-        <h1>Quiz</h1>
+        <>
+            <QuizProgression />
+            <QuizContent />
+        </>
     )
 }
 
