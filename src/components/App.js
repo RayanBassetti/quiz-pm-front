@@ -1,12 +1,9 @@
 import '../css/App.css';
-import './home/Home'
-import Home from './home/Home';
+import RoutingSwitch from './routes/RoutingSwitch'
 
 function App() {
   return (
-    <>
-    <Home />
-    </>
+    <RoutingSwitch />
   );
 }
 
