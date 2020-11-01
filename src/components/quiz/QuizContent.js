@@ -16,10 +16,12 @@ function QuizContent({quizData}) {
         
     }
     return (
-        <div>
-            <h1>{question}</h1>
-            {answers.map((item, i) => <button key={i} onClick={() => handleAnswer(item.isCorrect)}>{item.answer}</button>)} 
-            <QuizButton route="/ending" text={"Valider les réponses"} />
+        <div class="center-elem quiz-question-box">
+            <h1 class="quiz-question-text">{question}</h1>
+            <div class="quiz-question-answers">
+                {answers.map((item, i) => <button key={i} onClick={() => handleAnswer(item.isCorrect)} class="quiz-question-button">{item.answer}</button>)} 
+            </div>
+            <QuizButton route="/ending" text={"Valider les réponses"} class="button-validate"/>
         </div>
     )
 }
