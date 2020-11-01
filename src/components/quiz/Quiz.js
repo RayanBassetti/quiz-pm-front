@@ -17,7 +17,7 @@ function Quiz() {
                     isCorrect: false
                 },
                 {
-                    answer : "Une fausse réponse parmi tant d'autres, qui s'avère assez longue pour le coup", 
+                    answer : "Une fausse réponse parmi tant d'autres, qui s'avère assez longue pour le coup non tu crois on va voir ça haiyaaa", 
                     isCorrect: false
                 },
                 {
@@ -48,10 +48,10 @@ function Quiz() {
     ]
         
     return (
-        <>
+        <div class="quiz-display">
             <QuizProgression quizData={data}/>
             <QuizContent quizData={data[progress]}/>
-        </>
+        </div>
     )
 }
 
