@@ -4,6 +4,7 @@ import QuizContent from './QuizContent'
 
 //todo : setup context pour fetch l'api et avoir les questions
 function Quiz() {
+    const progress = 0;
     const data = 
     [
         {	
@@ -21,7 +22,7 @@ function Quiz() {
                 },
                 {
                     answer : "Une bonne réponse parmi tant d'autres, qui s'avère assez longue pour le coup", 
-                    isCorrect: false
+                    isCorrect: true
                 },
             ]
         },
@@ -49,7 +50,7 @@ function Quiz() {
     return (
         <>
             <QuizProgression quizData={data}/>
-            <QuizContent quizData={data}/>
+            <QuizContent quizData={data[progress]}/>
         </>
     )
 }
