@@ -19,8 +19,7 @@ function QuizContent({quizData}) {
         <div>
             <h1>{question}</h1>
             {answers.map((item, i) => <button key={i} onClick={() => handleAnswer(item.isCorrect)}>{item.answer}</button>)} 
-            <QuizButton route="/ending" text={"Go to ending"} />
-            <h1>AZE</h1>
+            <QuizButton route="/ending" text={"Valider les réponses"} />
         </div>
     )
 }
