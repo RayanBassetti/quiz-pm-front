@@ -1,12 +1,13 @@
 import '../css/App.css';
-import './home/Home'
-import Home from './home/Home';
+import RoutingSwitch from './routes/RoutingSwitch'
+
+import UsersContextProvider from './contexts/UsersContext'
 
 function App() {
   return (
-    <>
-    <Home />
-    </>
+    <UsersContextProvider>
+      <RoutingSwitch />
+    </UsersContextProvider>
   );
 }
 
