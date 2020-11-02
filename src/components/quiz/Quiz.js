@@ -10,7 +10,7 @@ function Quiz() {
         
     return (
         <div class="quiz-display">
-            <QuizProgression quizData={quiz}/>
+            <QuizProgression quizData={quiz} progress={progress}/>
             {quiz[progress] &&
             <QuizContent quizData={quiz[progress]}/>
             }
