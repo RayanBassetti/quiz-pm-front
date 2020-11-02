@@ -32,7 +32,7 @@ html .col-md-4, html .col-md-8 {
 }
 
 .full-height {
-  height:100vh
+  min-height:100vh
 }
 
 .center-elem {
@@ -96,6 +96,23 @@ html .col-md-4, html .col-md-8 {
   max-width:10%;
 }
 
+.flex-w-33 {
+  flex: 0 0 33.33%;
+  max-width:33.33%;
+}
+
+.flex-w-66 {
+  flex: 0 0 66.67%;
+  max-width:66.67%;
+}
+
+.flex-row {
+  display:flex;
+  flex-direction:row;
+}
+
+
+
 
 
 .bg-accueil {
@@ -153,6 +170,7 @@ html .col-md-4, html .col-md-8 {
   border:3px solid #EFEFEF;
   color:#000;
   align-items:center;
+  justify-content: center;
 }
 
 .quiz-question-answers {
@@ -163,4 +181,56 @@ html .col-md-4, html .col-md-8 {
 
 .quiz-question-box .button-default {
   margin: 10px auto;
+}
+
+.score-panel {
+  padding:30px 10%;
+  /* ^mauvaise pratique, haiyaaa...^ */
+  margin-bottom:0;
+  margin-top:auto;
+}
+
+.score-panel p {
+  margin-bottom:0;
+}
+
+.score-result {
+  font-size:80px;
+  font-weight:bold;
+}
+
+.score-text {
+  font-size:32px;
+  line-height:38px;
+  margin-bottom:20px;
+}
+
+.score-panel .score-sub-text {
+  margin-bottom:10px;
+}
+
+.score-panel .MuiFormControl-root {
+  width:300px;
+}
+
+.score-name-input {
+  display: flex;
+  vertical-align: middle;
+} 
+
+.score-name-input button {
+  margin-left:20px;
+}
+
+.score-name-input .MuiOutlinedInput-input {
+  border: 1px solid #888;
+}
+
+.score-display-answers {
+  margin-top:100px;
+}
+
+.score-display-answers a {
+  text-decoration:underline;
+  color:#000;
 }
