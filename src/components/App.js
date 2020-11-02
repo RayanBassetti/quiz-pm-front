@@ -2,11 +2,14 @@ import '../css/App.css';
 import RoutingSwitch from './routes/RoutingSwitch'
 
 import UsersContextProvider from './contexts/UsersContext'
+import QuizContextProvider from './contexts/QuizContext';
 
 function App() {
   return (
     <UsersContextProvider>
-      <RoutingSwitch />
+      <QuizContextProvider>
+        <RoutingSwitch />
+      </QuizContextProvider>
     </UsersContextProvider>
   );
 }
