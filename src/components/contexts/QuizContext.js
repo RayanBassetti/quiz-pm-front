@@ -1,21 +1,20 @@
-import React, {useState, createContext, useEffect} from 'react'
-import { useHistory } from "react-router-dom";
-
+import React, {useState, createContext, useEffect, useContext} from 'react'
+import {UsersContext} from './UsersContext'
 
 export const QuizContext = createContext()
 
 function QuizContextProvider({children}) {
+    const {score, setScore} = useContext(UsersContext)
     const [quiz, setQuiz] = useState([])
+    const [temp, setTemp] = useState(false)
     const [progress, setProgress] = useState(0)
-    const history = useHistory()
 
     useEffect(() => {
         fetchQuiz()
     }, [])
 
     const fetchQuiz = () => {
-        const data = 
-    [
+        const data = [
         {	
         questionID : 1,
         question : "Intitulé de la question qui se trouve être tellement long, mais vraimeeeent, qu’il faut un ou plusieurs retours à la ligne", 
@@ -59,18 +58,19 @@ function QuizContextProvider({children}) {
     }
 
     const handleProgress = () => {
-        setProgress(progress + 1)
-        let qlength = quiz.length
-        let trueProgress = progress + 1
-        if (trueProgress > qlength) {
-            history.push("/ending")
+        if(temp) {
+            setScore(score + 1)
+            setTemp(false)
         }
-        console.log(qlength)
+        setProgress(progress + 1)
+        setTemp(false)
     }
+
     return (
         <QuizContext.Provider value={{
             quiz: quiz,
             progress: progress,
+            setTemp: setTemp,
             handleProgress: handleProgress
         }}>
             {children}
