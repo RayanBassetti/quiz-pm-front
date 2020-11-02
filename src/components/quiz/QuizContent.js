@@ -21,7 +21,7 @@ function QuizContent({quizData}) {
             <div class="quiz-question-answers">
                 {answers.map((item, i) => <button key={i} onClick={() => handleAnswer(item.isCorrect)} class="quiz-question-button">{item.answer}</button>)} 
             </div>
-            <QuizButton route="/ending" text={"Valider les réponses"} class="button-validate"/>
+            <QuizButton type="validate" text={"Question suivante"} class="button-validate"/>
         </div>
     )
 }

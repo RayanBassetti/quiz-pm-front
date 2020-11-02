@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from "react-router-dom";
+import { QuizContext } from '../contexts/QuizContext';
 
 function QuizButton({text, text_bold, smiley, route, type, username, score}) {
+
+    const {handleProgress} = useContext(QuizContext)
 
     const history = useHistory()
 
@@ -16,6 +19,9 @@ function QuizButton({text, text_bold, smiley, route, type, username, score}) {
         }
         {type === "submit" &&
         <button class="button-default" onClick={() => console.log(username, score)}>{text}</button>
+        }
+        {type === "validate" &&
+        <button class="button-default" onClick={() => handleProgress()}>{text}</button>
         }
         </>
     )
