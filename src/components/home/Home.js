@@ -5,11 +5,11 @@ import HomeLeft from './HomeLeft'
 
 function Home() {
     return (
-        <div class="flex-row">
-            <div class="flex-w-33 full-height">
+        <div className="flex-row">
+            <div className="flex-w-33 full-height">
                 <HomeLeft />
             </div>
-            <div class="flex-w-66 full-height">
+            <div className="flex-w-66 full-height">
                 <HomeRight />
             </div>
         </div>

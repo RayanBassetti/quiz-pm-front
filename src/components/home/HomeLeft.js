@@ -3,7 +3,7 @@ import React from 'react'
 
 function HomeLeft() {
     return (
-        <div class="bg-accueil">
+        <div className="bg-accueil">
         </div>
     )
 }
