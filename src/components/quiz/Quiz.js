@@ -6,18 +6,25 @@ import QuizButton from '../common/QuizButton';
 
 //todo : setup context pour fetch l'api et avoir les questions
 function Quiz() {
-    const {quiz, progress} = useContext(QuizContext)
+    const {quiz, progress, loading} = useContext(QuizContext)
         
     return (
         <div className="quiz-display">
-            <QuizProgression quizData={quiz} progress={progress}/>
-            {quiz[progress] &&
-            <QuizContent quizData={quiz[progress]}/>
+            {loading &&
+                <p>loading...</p>
             }
-            {!quiz[progress] &&
-                <div className="center-elem quiz-question-box">
-                    <QuizButton route="/ending" text={"Valider les réponses"} className="button-validate"/>
-                </div>
+            {!loading &&
+            <>
+                <QuizProgression quizData={quiz} progress={progress}/>
+                {quiz[progress] &&
+                <QuizContent quizData={quiz[progress]}/>
+                }
+                {!quiz[progress] &&
+                    <div className="center-elem quiz-question-box">
+                        <QuizButton route="/ending" text={"Valider les réponses"} className="button-validate"/>
+                    </div>
+                }
+            </>
             }
         </div>
     )
