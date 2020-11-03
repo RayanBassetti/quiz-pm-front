@@ -15,13 +15,13 @@ function QuizButton({text, text_bold, smiley, route, type, username, score}) {
     return (
         <>
         {route &&
-        <button class="button-default" onClick={() => handleClick(route)}>{text} <span class="font-i font-b font-up">{text_bold}</span> {smiley}</button>
+        <button className="button-default" onClick={() => handleClick(route)}>{text} <span className="font-i font-b font-up">{text_bold}</span> {smiley}</button>
         }
         {type === "submit" &&
-        <button class="button-default" onClick={() => console.log(username, score)}>{text}</button>
+        <button className="button-default" onClick={() => console.log(username, score)}>{text}</button>
         }
         {type === "validate" &&
-        <button class="button-default" onClick={() => handleProgress()}>{text}</button>
+        <button className="button-default" onClick={() => handleProgress()}>{text}</button>
         }
         </>
     )

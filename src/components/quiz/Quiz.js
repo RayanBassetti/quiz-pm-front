@@ -9,14 +9,14 @@ function Quiz() {
     const {quiz, progress} = useContext(QuizContext)
         
     return (
-        <div class="quiz-display">
+        <div className="quiz-display">
             <QuizProgression quizData={quiz} progress={progress}/>
             {quiz[progress] &&
             <QuizContent quizData={quiz[progress]}/>
             }
             {!quiz[progress] &&
-                <div class="center-elem quiz-question-box">
-                    <QuizButton route="/ending" text={"Valider les réponses"} class="button-validate"/>
+                <div className="center-elem quiz-question-box">
+                    <QuizButton route="/ending" text={"Valider les réponses"} className="button-validate"/>
                 </div>
             }
         </div>
