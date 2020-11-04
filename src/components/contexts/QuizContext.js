@@ -1,6 +1,5 @@
 import React, {useState, createContext, useEffect, useContext} from 'react'
 import {UsersContext} from './UsersContext'
-
 export const QuizContext = createContext()
 
 function QuizContextProvider({children}) {
@@ -24,12 +23,12 @@ function QuizContextProvider({children}) {
             .catch(err => console.log(err))
     }
 
-    const handleProgress = () => {
+    const handleAnswer = () => {
         if(temp) {
             setScore(score + 1)
             setTemp(false)
+            return false
         }
-        setProgress(progress + 1)
         setTemp(false)
     }
 
@@ -39,7 +38,8 @@ function QuizContextProvider({children}) {
             quiz: quiz,
             progress: progress,
             setTemp: setTemp,
-            handleProgress: handleProgress
+            setProgress: setProgress,
+            handleAnswer: handleAnswer
         }}>
             {children}
         </QuizContext.Provider>

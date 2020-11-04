@@ -4,13 +4,27 @@ import { QuizContext } from '../contexts/QuizContext';
 
 function QuizButton({text, text_bold, smiley, route, type, username, score}) {
 
-    const {handleProgress} = useContext(QuizContext)
+    const {quiz, progress, setProgress, handleAnswer} = useContext(QuizContext)
 
     const history = useHistory()
 
     const handleClick = (route) => {
         history.push(route)
     }
+
+    const handleQuiz = () => {
+        handleAnswer()
+        handleProgress()
+    }
+
+    const handleProgress = () => {
+        if(progress + 1 === quiz.length) {
+            history.push("/ending")
+        } else {
+            setProgress(progress + 1)
+        }
+    }
+
     
     return (
         <>
@@ -21,7 +35,7 @@ function QuizButton({text, text_bold, smiley, route, type, username, score}) {
         <button className="button-default" onClick={() => console.log(username, score)}>{text}</button>
         }
         {type === "validate" &&
-        <button className="button-default" onClick={() => handleProgress()}>{text}</button>
+        <button className="button-default" onClick={() => handleQuiz()}>{text}</button>
         }
         </>
     )
