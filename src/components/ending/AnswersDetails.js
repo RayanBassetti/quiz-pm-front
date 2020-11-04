@@ -9,15 +9,13 @@ function AnswersDetails() {
         const quizElements = []
         quiz.forEach(question => {
             quizElements.push(
-                <div className="answers-details" id="answers-details" key={question.questionID}>
-                    <div className="answers-question-details">
-                        <p>{question.question}</p>
-                        <ul>
-                            {question.answers.map((item, i) => {
-                                return item.isCorrect ? <li key={i} className={"answers-question-correct"}>{item.answer}</li> : <li key={i}>{item.answer}</li>
-                            })}
-                        </ul>
-                    </div>
+                <div className="answers-question-details" key={question.questionID}>
+                    <p>{question.question}</p>
+                    <ul>
+                        {question.answers.map((item, i) => {
+                            return item.isCorrect ? <li key={i} className={"answers-question-correct"}>{item.answer}</li> : <li key={i}>{item.answer}</li> /* answers-question-wrong */
+                        })}
+                    </ul>
                 </div>
             )
         })
@@ -26,7 +24,9 @@ function AnswersDetails() {
 
     return (
         <>
-        {handleQuiz(quiz)}
+            <div className="answers-details" id="answers-details">
+                {handleQuiz(quiz)}
+            </div>
         </>
     )
 }
