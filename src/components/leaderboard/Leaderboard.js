@@ -1,7 +1,7 @@
 import React from 'react'
 
 import QuizButton from '../common/QuizButton'
-import LeaderboardTable from './LeaderboardTable'
+// import LeaderboardTable from './LeaderboardTable'
 
 function Leaderboard() {
     return (
