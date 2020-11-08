@@ -7,7 +7,7 @@ import { UsersContext } from '../contexts/UsersContext'
 
 function Ending() {
 
-    const {username, score, setUsername} = useContext(UsersContext)
+    const {score, setUsername, submitted} = useContext(UsersContext)
 
     return (
         <>
@@ -19,10 +19,17 @@ function Ending() {
                         <p className="font-s-24 font-w-300">On peut dire que vous êtes réellement <span className="font-up font-i font-w-700">badass</span> !</p>
                     </div>
                     <p className="font-s-16 font-w-300 score-sub-text">Quel est votre petit nom ? Histoire de noter votre exploit dans le livre des records !</p>
+                    {!submitted &&
                     <div className="score-name-input">
                         <TextField id="outlined-basic" label="Say my name..." variant="outlined" onChange={(event) => setUsername(event.currentTarget.value)}/>
-                        <QuizButton text={"Enregistrer"} type="submit" username={username} score={score}/>
+                        <QuizButton text={"Enregistrer"} type="submit"/>
                     </div>
+                    }
+                    {submitted &&
+                    <div className="score-name-input">
+                        <p className="font-s-16 font-w-300 score-sub-text">Merci à toi ! On se retrouve dans le leaderboard !</p>
+                    </div>
+                    }
                     <div className="score-display-answers">
                         <a href="#answers-details">Voir mes réponses en détail 👇</a>
                     </div>

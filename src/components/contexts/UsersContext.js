@@ -9,6 +9,7 @@ function UsersContextProvider({children}) {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
     const [updated, setUpdated] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         fetchUsers()
@@ -17,58 +18,31 @@ function UsersContextProvider({children}) {
 
 
     const fetchUsers = () => {
-        // setLoading(true)
-        // fetch('https://endpoint/users')
-        //     .then(res => res.json())
-        //     .then(res => {
-        //         setAlertes(res.data)
-        //         setLoading(false)
-        //     })
         setLoading(true)
-        const data = [
-            {
-                "username": "RayanJenkins",
-                "score": 20
-            },
-            {
-                "username": "Latonal",
-                "score": 12
-            },
-            {
-                "username": "Ludion",
-                "score": 1
-            }
-        ]
-        setUsers(data)
-        setLoading(false)
+        fetch('https://polar-ocean-73785.herokuapp.com/api/scores/10')
+            .then(res => res.json())
+            .then(res => {
+                setUsers(res.data)
+                setLoading(false)
+            })
+            .catch(err => console.log(err))
+
     }
 
-    const createUser = () => {
-        console.log(username, score)
-        // fetch(`http://endpoint/users`, {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //      "username": username,
-        //        "score": score    
-        //}),
-        //     headers: {
-        //     "Content-type": "application/json; charset=UTF-8"
-        //     }
-        // })
-        // .then(this.setState({
-        //     submitted: true
-        // }))
+    const createUser = (username, score) => {
+        fetch(`https://polar-ocean-73785.herokuapp.com/api/scores/`, {
+            method: 'POST',
+            body: JSON.stringify({
+                "username": username,
+                "score": score    
+            }),
+            headers: {
+            "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(res => console.log(res))
+        .then(setSubmitted(true))
     }
-    
-    // const handleStatus = (id) => {
-    //     alertes.forEach(item => {
-    //         if(item.id === id) {
-    //             item.status = item.status + 1
-    //             console.log(item)
-    //         }
-    //     })
-    //     return alertes
-    // }
 
     return (
         <UsersContext.Provider value={{
@@ -76,6 +50,7 @@ function UsersContextProvider({children}) {
             users: users, // à utiliser pour sortir les utilisateurs de la BDD
             score: score,
             username: username,
+            submitted: submitted,
             setScore: setScore,
             setUsername: setUsername,
             setUpdated: setUpdated,

@@ -1,33 +1,32 @@
 import React from 'react'
 
-function LeaderboardTable() {
+function LeaderboardTable({users, loading}) {
+
     return (
         <>
             <table>
-                <tr>
-                    <th>#1 &#129351;</th>
-                    <th>pseudo</th>
-                    <th class="font-up font-b font-i">BADASS</th>
-                    <th>11/10</th>
-                </tr>
-                <tr>
-                    <th>#2 &#129352;</th>
-                    <th>pseudo</th>
-                    <th class="font-up font-b font-i">BADASS</th>
-                    <th>10/10</th>
-                </tr>
-                <tr>
-                    <th>#3 &#129353;</th>
-                    <th>pseudo</th>
-                    <th class="font-up font-b font-i"></th>
-                    <th>9/10</th>
-                </tr>
-                <tr>
-                    <th>#4</th>
-                    <th>pseudo</th>
-                    <th class="font-up font-b font-i"></th>
-                    <th>7/10</th>
-                </tr>
+                {loading &&
+                    <p>Chargement...</p>
+                }
+                {!loading &&
+                    users.map((item, i) => {
+                        if(item.score >= 10) {
+                            return <tr key={i}>
+                                <th>#1 &#129351;</th>
+                                <th>{item.username}</th>
+                                <th class="font-up font-b font-i">BADASS</th>
+                                <th>{item.score}</th>
+                            </tr>
+                        } else {
+                            return <tr key={i}>
+                                <th>{item.id} &#129351;</th>
+                                <th>{item.username}</th>
+                                <th></th>
+                                <th>{item.score}</th>
+                            </tr>
+                        }
+                    })
+                }
             </table>
         </>
     )
