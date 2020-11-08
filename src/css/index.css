@@ -22,6 +22,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+th {
+  font-weight:normal;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -45,6 +49,10 @@ html .col-md-4, html .col-md-8 {
   flex-direction: column;
 }
 
+.vertical-align {
+  margin: auto 0;
+}
+
 .font-up {
   text-transform: uppercase;
 }
@@ -55,6 +63,10 @@ html .col-md-4, html .col-md-8 {
 
 .font-b {
   font-weight:bold;
+}
+
+.font-n {
+  font-weight:normal;
 }
 
 .font-s-40 {
@@ -287,4 +299,88 @@ html .col-md-4, html .col-md-8 {
 .answers-question-details ul li.answers-question-wrong {
   color:rgb(197, 21, 21);
   list-style-type: "\274C";
+}
+
+.leaderboard-top {
+  display:flex;
+  flex-direction:row;
+  height:60px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  justify-content: space-between;
+  align-items: center;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.leaderboard-top ul {
+  list-style: none;
+  display:flex;
+  font-size:16px;
+  color:#000;
+}
+
+.leaderboard-top ul li {
+  margin:20px;
+}
+
+.leaderboard-top ul li a {
+  color:#000;
+  text-decoration: none;
+}
+
+.leaderboard-title {
+  text-align:center;
+  margin-top:50px;
+  margin-bottom:20px;
+  font-size:40px;
+}
+
+.leaderboard-list {
+  display:flex;
+  justify-content: space-evenly;
+  padding:30px;
+  flex-wrap:wrap;
+}
+
+.leaderboard-list p {
+  text-align:left;
+  /* font-weight:28px; */
+  font-size:28px;
+}
+
+.leaderboard-unique {
+  margin: 0 10px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  flex: 0 0 44%;
+  margin-bottom:30px;
+}
+
+.leaderboard-unique table {
+  width:100%;
+  max-width:500px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  font-weight:normal;
+}
+
+.leaderboard-unique table tr {
+  display:flex;
+  flex-direction:row;
+  height:40px;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.leaderboard-unique table tr th {
+  width:25%;
+}
+
+.leaderboard-unique table tr th:nth-child(1) {
+  padding-left:10px;
+}
+
+.leaderboard-unique table tr th:nth-child(4) {
+  padding-right:10px;
+  text-align:right;
 }
