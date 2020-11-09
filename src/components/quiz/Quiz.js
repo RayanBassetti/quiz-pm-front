@@ -5,7 +5,8 @@ import { QuizContext } from '../contexts/QuizContext';
 
 //todo : setup context pour fetch l'api et avoir les questions
 function Quiz() {
-    const {quiz, progress, loading} = useContext(QuizContext)
+    const {quiz, progress, loading, bonus} = useContext(QuizContext)
+    console.log(bonus)
         
     return (
         <div className="quiz-display">
