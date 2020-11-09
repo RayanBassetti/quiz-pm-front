@@ -30,7 +30,7 @@ function UsersContextProvider({children}) {
     }
 
     const createUser = (username, score) => {
-        fetch(`https://polar-ocean-73785.herokuapp.com/api/scores/`, {
+        fetch(`https://polar-ocean-73785.herokuapp.com/score`, {
             method: 'POST',
             body: JSON.stringify({
                 "username": username,
@@ -42,6 +42,7 @@ function UsersContextProvider({children}) {
         })
         .then(res => console.log(res))
         .then(setSubmitted(true))
+        .catch(err => console.log(err))
     }
 
     return (
