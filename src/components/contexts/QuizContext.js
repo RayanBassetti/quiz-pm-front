@@ -16,7 +16,7 @@ function QuizContextProvider({children}) {
     }, [])
 
     const fetchQuiz = () => {
-        fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz)
+        fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz, true)
         let rand = Math.floor(Math.random() * 3)
         if(rand === 0) {
             // setBonusSource("Quiz Pursuit")
@@ -28,7 +28,7 @@ function QuizContextProvider({children}) {
             setLoading(false)
         } else if(rand === 2) {
             // setBonusSource("WSF Popcorn")
-            fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus)
+            fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, true)
             setLoading(false)
         } else {
             console.log("erreur randomvar")
