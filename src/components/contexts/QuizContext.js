@@ -13,23 +13,25 @@ function QuizContextProvider({children}) {
 
     useEffect(() => {    
         const fetchQuiz = () => {
-            fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz, setLoading)
-            let rand = Math.floor(Math.random() * 3)
-            if(rand === 0) {
-                // setBonusSource("Quiz Pursuit")
-                fetching('https://stagingquizzpursuit.herokuapp.com/api/questions/random', setBonus, setLoading)
-            } else if(rand === 1) {
-                // setBonusSource("Adley Quiz")
-                fetching('https://adley-quizz.herokuapp.com/api/questions/random', setBonus, setLoading)
-            } else if(rand === 2) {
-                // setBonusSource("WSF Popcorn")
-                fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, setLoading)
-            } else {
-                console.log("erreur randomvar")
+            if(loading === true) {
+                fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz, setLoading)
+                let rand = Math.floor(Math.random() * 3)
+                if(rand === 0) {
+                    // setBonusSource("Quiz Pursuit")
+                    fetching('https://stagingquizzpursuit.herokuapp.com/api/questions/random', setBonus, setLoading)
+                } else if(rand === 1) {
+                    // setBonusSource("Adley Quiz")
+                    fetching('https://adley-quizz.herokuapp.com/api/questions/random', setBonus, setLoading)
+                } else if(rand === 2) {
+                    // setBonusSource("WSF Popcorn")
+                    fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, setLoading)
+                } else {
+                    console.log("erreur randomvar")
+                }
             }
         }
         fetchQuiz()
-    }, [])
+    }, [loading])
 
 
 

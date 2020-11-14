@@ -8,7 +8,6 @@ export const fetching = (url, setState, setLoading) => {
     }
 
     API(url).then(res => {
-        console.log("THEN" + url, res)
             setState(res.questions)
             setLoading(false)
         })
