@@ -1,16 +1,16 @@
-export const fetching = (url, setState, status) => {
-    fetch(url)
-        .then(res => res.json())
-        .then(res => {
-            if(status) {
-                console.log("QUESTIONS")
-                console.log(url, res.questions)
-                setState(res.questions)
-            } else {
-                console.log("DATA")
-                console.log(url, res.data)
-                setState(res.data)
-            }
+export const fetching = (url, setState) => {
+    
+    async function API(url) {
+        const res = await fetch(url)
+        const data = await res.json()
+        console.log("ASYNC" + url, data)
+        return data
+    }
+
+    API(url).then(res => {
+        console.log("THEN" + url, res)
+            setState(res.questions)
         })
         .catch(err => console.log(err))
 }
+

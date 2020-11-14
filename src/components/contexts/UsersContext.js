@@ -1,4 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react'
+import { fetching } from '../common/Methods'
 
 export const UsersContext = createContext()
 
@@ -8,25 +9,17 @@ function UsersContextProvider({children}) {
     const [username, setUsername] = useState("")
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
-    const [updated, setUpdated] = useState(false)
     const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         fetchUsers()
-        setUpdated(false)
-    }, [updated])
+    }, [loading])
 
 
     const fetchUsers = () => {
         setLoading(true)
-        fetch('https://polar-ocean-73785.herokuapp.com/api/scores/10')
-            .then(res => res.json())
-            .then(res => {
-                setUsers(res.data)
-                setLoading(false)
-            })
-            .catch(err => console.log(err))
-
+        fetching('https://polar-ocean-73785.herokuapp.com/api/scores/10', setUsers)
+        setLoading(false)
     }
 
     const createUser = (username, score) => {
@@ -54,7 +47,6 @@ function UsersContextProvider({children}) {
             submitted: submitted,
             setScore: setScore,
             setUsername: setUsername,
-            setUpdated: setUpdated,
             createUser: createUser,
             fetchUsers: fetchUsers
         }}>

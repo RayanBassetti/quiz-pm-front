@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
+import { useHistory } from 'react-router'
 
 import QuizButton from '../common/QuizButton'
 import { UsersContext } from '../contexts/UsersContext'
 import LeaderboardTable from './LeaderboardTable'
 
 function Leaderboard() {
+    const history = useHistory()
     const {users, loading} = useContext(UsersContext)
     return (
         <>
             <div className="leaderboard-top">
-                <h1 class="vertical-align">Le quiz <span className="font-up font-b font-i">badass</span></h1>
+                <h1 class="vertical-align" onClick={() => history.goBack()}>Le quiz <span className="font-up font-b font-i">badass</span></h1>
                 <ul class="vertical-align">
                     <li><a href="#e">Quiz 1</a></li>
                     <li><a href="#e">Quiz 2</a></li>
