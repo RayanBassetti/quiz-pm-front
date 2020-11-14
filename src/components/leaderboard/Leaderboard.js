@@ -7,8 +7,7 @@ import LeaderboardTable from './LeaderboardTable'
 
 function Leaderboard() {
     const history = useHistory()
-    const {users, loading, leaderboard, setLeaderboard} = useContext(UsersContext)
-    console.log(leaderboard)
+    const {users, loading, setLeaderboard} = useContext(UsersContext)
     return (
         <>
             <div className="leaderboard-top">

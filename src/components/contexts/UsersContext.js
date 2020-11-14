@@ -8,7 +8,7 @@ function UsersContextProvider({children}) {
     const [score, setScore] = useState(0)
     const [username, setUsername] = useState("")
     const [users, setUsers] = useState([])
-    const [leaderboard, setLeaderboard] = useState("popcorn")
+    const [leaderboard, setLeaderboard] = useState("badass")
     const [loading, setLoading] = useState(true)
     const [submitted, setSubmitted] = useState(false)
 
@@ -18,15 +18,14 @@ function UsersContextProvider({children}) {
 
 
     const fetchUsers = (leaderboard) => {
-        setLoading(true)
         if(leaderboard === "badass") {
-            fetching(setLoading, 'https://polar-ocean-73785.herokuapp.com/api/scores/10', setUsers)
+            fetching('https://polar-ocean-73785.herokuapp.com/api/scores/10', setUsers, setLoading)
         } else if(leaderboard === "pursuit") {
-            fetching(setLoading, 'https://stagingquizzpursuit.herokuapp.com/api/scores/10', setUsers)
+            fetching('https://stagingquizzpursuit.herokuapp.com/api/scores/10', setUsers, setLoading)
         } else if(leaderboard === "adley") {
-            fetching(setLoading, 'https://adley-quizz.herokuapp.com/api/scores/10', setUsers)
+            fetching('https://adley-quizz.herokuapp.com/api/scores/10', setUsers, setLoading)
         } else if(leaderboard === "popcorn") {
-            fetching(setLoading, 'https://wsf-popcorn-backend.herokuapp.com/api/scores/10', setUsers)
+            fetching('https://wsf-popcorn-backend.herokuapp.com/api/scores/10', setUsers, setLoading)
         } else {
             setUsers({"error" : "empty"})
         }
