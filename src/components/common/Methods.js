@@ -1,4 +1,4 @@
-export const fetching = (url, setState) => {
+export const fetching = (url, setState, setLoading) => {
     
     async function API(url) {
         const res = await fetch(url)
@@ -10,6 +10,7 @@ export const fetching = (url, setState) => {
     API(url).then(res => {
         console.log("THEN" + url, res)
             setState(res.questions)
+            setLoading(false)
         })
         .catch(err => console.log(err))
 }
