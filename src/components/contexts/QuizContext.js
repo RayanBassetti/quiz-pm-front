@@ -33,8 +33,6 @@ function QuizContextProvider({children}) {
         fetchQuiz()
     }, [loading])
 
-
-
     const handleAnswer = () => {
         if(temp) {
             setScore(score + 1)
