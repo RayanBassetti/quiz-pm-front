@@ -5,8 +5,9 @@ function LeaderboardTable({users, loading}) {
     return (
         <>
             <table>
+                <tbody>
                 {loading &&
-                    <p>Chargement...</p>
+                    <td>Chargement...</td>
                 }
                 {!loading &&
                     users.map((item, i) => {
@@ -14,7 +15,7 @@ function LeaderboardTable({users, loading}) {
                             return <tr key={i}>
                                 <th>#1 &#129351;</th>
                                 <th>{item.username}</th>
-                                <th class="font-up font-b font-i">BADASS</th>
+                                <th className="font-up font-b font-i">BADASS</th>
                                 <th>{item.score}</th>
                             </tr>
                         } else {
@@ -27,6 +28,7 @@ function LeaderboardTable({users, loading}) {
                         }
                     })
                 }
+                </tbody>
             </table>
         </>
     )

@@ -8,18 +8,27 @@ function UsersContextProvider({children}) {
     const [score, setScore] = useState(0)
     const [username, setUsername] = useState("")
     const [users, setUsers] = useState([])
+    const [leaderboard, setLeaderboard] = useState("badass")
     const [loading, setLoading] = useState(true)
     const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
-        fetchUsers()
-    }, [loading])
+        fetchUsers(leaderboard)
+    }, [leaderboard])
 
 
-    const fetchUsers = () => {
-        setLoading(true)
-        fetching('https://polar-ocean-73785.herokuapp.com/api/scores/10', setUsers)
-        setLoading(false)
+    const fetchUsers = (leaderboard) => {
+        if(leaderboard === "badass") {
+            fetching('https://polar-ocean-73785.herokuapp.com/api/scores/10', setUsers, setLoading)
+        } else if(leaderboard === "pursuit") {
+            fetching('https://stagingquizzpursuit.herokuapp.com/api/scores/10', setUsers, setLoading)
+        } else if(leaderboard === "adley") {
+            fetching('https://adley-quizz.herokuapp.com/api/scores/10', setUsers, setLoading)
+        } else if(leaderboard === "popcorn") {
+            fetching('https://wsf-popcorn-backend.herokuapp.com/api/scores/10', setUsers, setLoading)
+        } else {
+            setUsers({"error" : "empty"})
+        }
     }
 
     const createUser = (username, score) => {
@@ -41,14 +50,16 @@ function UsersContextProvider({children}) {
     return (
         <UsersContext.Provider value={{
             loading: loading, // à utiliser pour chargement des utilisateurs
-            users: users, // à utiliser pour sortir les utilisateurs de la BDD
+            users: users,
             score: score,
             username: username,
+            leaderboard: leaderboard,
             submitted: submitted,
             setScore: setScore,
             setUsername: setUsername,
             createUser: createUser,
-            fetchUsers: fetchUsers
+            fetchUsers: fetchUsers,
+            setLeaderboard: setLeaderboard
         }}>
             {children}
         </UsersContext.Provider>

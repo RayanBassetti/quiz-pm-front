@@ -7,15 +7,16 @@ import LeaderboardTable from './LeaderboardTable'
 
 function Leaderboard() {
     const history = useHistory()
-    const {users, loading} = useContext(UsersContext)
+    const {users, loading, setLeaderboard} = useContext(UsersContext)
     return (
         <>
             <div className="leaderboard-top">
-                <h1 class="vertical-align" onClick={() => history.goBack()}>Le quiz <span className="font-up font-b font-i">badass</span></h1>
-                <ul class="vertical-align">
-                    <li><a href="#e">Quiz 1</a></li>
-                    <li><a href="#e">Quiz 2</a></li>
-                    <li><a href="#e">Quiz 3</a></li>
+                <h1 className="vertical-align" onClick={() => history.goBack()}>Le quiz <span className="font-up font-b font-i">badass</span></h1>
+                <ul className="vertical-align">
+                    <button onClick={() => setLeaderboard("badass")}>Quiz Badass</button>
+                    <button onClick={() => setLeaderboard("adley")}>Adley Quiz</button>
+                    <button onClick={() => setLeaderboard("popcorn")}>Popcorn Quiz</button>
+                    <button onClick={() => setLeaderboard("pursuit")}>Pursuit Quiz</button>
                 </ul>
                 <QuizButton text="Jouer" route="/quiz"/>
             </div>
@@ -26,7 +27,7 @@ function Leaderboard() {
                     <LeaderboardTable users={users} loading={loading}></LeaderboardTable>
                 </div> */}
                 <div className="leaderboard-unique">
-                    <p>Notre top <span class=" font-up font-b font-i">badass</span></p>
+                    <p>Notre top <span className=" font-up font-b font-i">badass</span></p>
                     <LeaderboardTable users={users} loading={loading}></LeaderboardTable>
                 </div>
             </div>
