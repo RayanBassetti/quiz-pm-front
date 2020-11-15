@@ -8,30 +8,34 @@ function QuizContextProvider({children}) {
     const [quiz, setQuiz] = useState([])
     const [bonus, setBonus] = useState([])
     const [temp, setTemp] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [loadingFetch, setLoadingFetch] = useState(true)
     const [progress, setProgress] = useState(0)
+    const [bonusSource, setBonusSource] = useState("")
 
     useEffect(() => {    
         const fetchQuiz = () => {
-            if(loading === true) {
-                fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz, setLoading)
-                let rand = Math.floor(Math.random() * 3)
-                if(rand === 0) {
-                    // setBonusSource("Quiz Pursuit")
-                    fetching('https://stagingquizzpursuit.herokuapp.com/api/questions/random', setBonus, setLoading)
-                } else if(rand === 1) {
-                    // setBonusSource("Adley Quiz")
-                    fetching('https://adley-quizz.herokuapp.com/api/questions/random', setBonus, setLoading)
-                } else if(rand === 2) {
-                    // setBonusSource("WSF Popcorn")
-                    fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, setLoading)
-                } else {
-                    console.log("erreur randomvar")
-                }
+            if(loadingFetch === true) {
+                fetching('https://polar-ocean-73785.herokuapp.com/api/questions/10', setQuiz, setLoadingFetch)
+                fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, setLoadingFetch)
+                setBonusSource("WSF Popcorn")
+                // let rand = Math.floor(Math.random() * 3)
+                // if(rand === 0) {
+                //     setBonusSource("Quiz Pursuit")
+                //     fetching('https://stagingquizzpursuit.herokuapp.com/api/questions/random', setBonus, setLoadingFetch)
+                // } else if(rand === 1) {
+                //     setBonusSource("Adley Quiz")
+                //     fetching('https://adley-quizz.herokuapp.com/api/questions/random', setBonus, setLoadingFetch)
+                // } else if(rand === 2) {
+                //     setBonusSource("WSF Popcorn")
+                //     fetching('https://wsf-popcorn-backend.herokuapp.com/api/questions/random', setBonus, setLoadingFetch)
+                // } else {
+                //     console.log("erreur randomvar")
+                // }
             }
+            
         }
         fetchQuiz()
-    }, [loading])
+    }, [loadingFetch])
 
     const handleAnswer = () => {
         if(temp) {
@@ -44,11 +48,13 @@ function QuizContextProvider({children}) {
 
     return (
         <QuizContext.Provider value={{
-            loading: loading,
+            loadingFetch: loadingFetch,
             quiz: quiz,
             bonus: bonus,
             progress: progress,
+            bonusSource: bonusSource,
             setTemp: setTemp,
+            setQuiz: setQuiz,
             setProgress: setProgress,
             handleAnswer: handleAnswer
         }}>
