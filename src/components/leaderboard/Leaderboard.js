@@ -7,7 +7,7 @@ import LeaderboardTable from './LeaderboardTable'
 
 function Leaderboard() {
     const history = useHistory()
-    const {users, loading, setLeaderboard} = useContext(UsersContext)
+    const {users, loading, leaderboard, setLeaderboard} = useContext(UsersContext)
     return (
         <>
             <div className="leaderboard-top">
@@ -27,7 +27,7 @@ function Leaderboard() {
                     <LeaderboardTable users={users} loading={loading}></LeaderboardTable>
                 </div> */}
                 <div className="leaderboard-unique">
-                    <p>Notre top <span className=" font-up font-b font-i">badass</span></p>
+                    <p>Le top <span className=" font-up font-b font-i">{leaderboard}</span></p>
                     <LeaderboardTable users={users} loading={loading}></LeaderboardTable>
                 </div>
             </div>

@@ -129,7 +129,6 @@ html .col-md-4, html .col-md-8 {
 
 @media only screen and (min-width: 600px) {
   .bg-accueil {
-    background-image:url("../img/mims.png");
     height:100%;
     width:100%;
     background-size:cover;
