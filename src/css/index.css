@@ -1,0 +1,387 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+  scroll-behavior: smooth;
+}
+
+* body {
+  font-family: 'Lato' !important;
+}
+
+html, body, #app {
+  height:100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+th {
+  font-weight:normal;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html .col-md-4, html .col-md-8 {
+  padding-left:0;
+  padding-right:0;
+}
+
+.full-height {
+  min-height:100vh
+}
+
+.center-elem {
+  text-align:center;
+  height:100vh;
+  width:100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-align {
+  margin: auto 0;
+}
+
+.font-up {
+  text-transform: uppercase;
+}
+
+.font-i {
+  font-style:italic;
+}
+
+.font-b {
+  font-weight:bold;
+}
+
+.font-n {
+  font-weight:normal;
+}
+
+.font-s-40 {
+  font-size:40px;
+}
+
+.font-s-24 {
+  font-size:24px;
+}
+
+.font-w-700 {
+  font-weight:700;
+}
+
+.font-w-300 {
+  font-weight:300; /* Manque le font-weight 300 pour le Lato */
+}
+
+.button-default {
+  background-color:#888888;
+  border:3px solid #888888;
+  color:#fff;
+  padding:8px 32px;
+  text-align:center;
+  width:fit-content;
+  text-decoration:none;
+  display:inline-block;
+  transition:0.4s;
+}
+
+.button-default:hover {
+  background-color:#fff;
+  color:#888;
+}
+
+.c-col-10 {
+  padding-left:0;
+  padding-right:0;
+
+  flex: 0 0 10%;
+  max-width:10%;
+}
+
+.flex-row {
+  display:flex;
+  flex-direction:row;
+}
+
+.flex-w-33 {
+  max-width:0;
+  flex: 0;
+}
+
+.flex-w-66 {
+  max-width:100%;
+  flex: 0 0 100%;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+  .bg-accueil {
+    height:100%;
+    width:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+
+  .flex-w-33 {
+    flex: 0 0 33.33%;
+    max-width:33.33%;
+  }
+  
+  .flex-w-66 {
+    flex: 0 0 66.67%;
+    max-width:66.67%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .quiz-progression {
+    display:none;
+  }
+}
+
+.accueil-choix {
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.quiz-display {
+  display:flex;
+  flex-direction:row;
+  height:100vh;
+}
+
+.quiz-progression {
+  background-color:#444;
+  color:#fff;
+  font-size:16px;
+  overflow-y:auto;
+}
+
+.current-question {
+  background-color:#999;
+}
+
+.quiz-progression p {
+  margin-bottom:0;
+  padding:10px 0;
+}
+
+.quiz-question-box {
+  padding:20px;
+}
+
+.quiz-question-text {
+  font-size:24px;
+}
+
+.quiz-question-button {
+  display:flex;
+  flex: 0 0 44%;
+  margin:5px;
+  padding: 10px 5px;
+  font-size:16px;
+  background-color:#EFEFEF;
+  border:3px solid #EFEFEF;
+  color:#000;
+  align-items:center;
+  justify-content: center;
+}
+
+.quiz-question-answers {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+
+.quiz-question-box .button-default {
+  margin: 10px auto;
+}
+
+.score-panel {
+  padding:30px 10%;
+  /* ^mauvaise pratique, haiyaaa...^ */
+  margin-bottom:0;
+  margin-top:auto;
+}
+
+.score-panel p {
+  margin-bottom:0;
+}
+
+.score-result {
+  font-size:80px;
+  font-weight:bold;
+}
+
+.score-text {
+  font-size:32px;
+  line-height:38px;
+  margin-bottom:20px;
+}
+
+.score-panel .score-sub-text {
+  margin-bottom:10px;
+}
+
+.score-panel .MuiFormControl-root {
+  width:300px;
+}
+
+.score-name-input {
+  display: flex;
+  vertical-align: middle;
+} 
+
+.score-name-input button {
+  margin-left:20px;
+}
+
+.score-name-input .MuiOutlinedInput-input {
+  border: 1px solid #888;
+}
+
+.score-display-answers {
+  margin-top:20%;
+}
+
+.score-display-answers a {
+  text-decoration:underline;
+  color:#000;
+}
+
+.answers-details {
+  padding:5% 10%;
+}
+
+.answers-question-details {
+  margin-bottom:50px;
+}
+
+.answers-question-details>p {
+  font-size:24px;
+}
+
+.answers-question-details ul {
+  padding-left:20px;
+}
+
+.answers-question-details ul li {
+  list-style: none;
+  padding-left:10px;
+  font-size:16px;
+  text-decoration:line-through;
+  color:#666;
+}
+
+.answers-question-details ul li.answers-question-correct {
+  text-decoration:none;
+  list-style-type: "\002705";
+  color:#000;
+}
+
+.answers-question-details ul li.answers-question-wrong {
+  color:rgb(197, 21, 21);
+  list-style-type: "\274C";
+}
+
+.leaderboard-top {
+  display:flex;
+  flex-direction:row;
+  height:60px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  justify-content: space-between;
+  align-items: center;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.leaderboard-top ul {
+  list-style: none;
+  display:flex;
+  font-size:16px;
+  color:#000;
+}
+
+.leaderboard-top ul button {
+  margin:0 5px;
+  color:#000;
+  text-decoration: none;
+  background:none;
+  border:none;
+}
+
+.leaderboard-top ul button:hover {
+  color:rgb(0, 71, 138);
+}
+
+.leaderboard-title {
+  text-align:center;
+  margin-top:50px;
+  margin-bottom:20px;
+  font-size:40px;
+}
+
+.leaderboard-list {
+  display:flex;
+  justify-content: space-evenly;
+  padding:30px;
+  flex-wrap:wrap;
+}
+
+.leaderboard-list p {
+  text-align:left;
+  /* font-weight:28px; */
+  font-size:28px;
+}
+
+.leaderboard-unique {
+  margin: 0 10px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  flex: 0 0 44%;
+  margin-bottom:30px;
+}
+
+.leaderboard-unique table {
+  width:100%;
+  max-width:500px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  font-weight:normal;
+}
+
+.leaderboard-unique table tr {
+  display:flex;
+  flex-direction:row;
+  height:40px;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.leaderboard-unique table tr th {
+  width:25%;
+}
+
+.leaderboard-unique table tr th:nth-child(1) {
+  padding-left:10px;
+}
+
+.leaderboard-unique table tr th:nth-child(4) {
+  padding-right:10px;
+  text-align:right;
+}
