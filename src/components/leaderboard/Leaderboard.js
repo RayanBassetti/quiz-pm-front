@@ -22,10 +22,6 @@ function Leaderboard() {
             </div>
             <h2 className="leaderboard-title font-b">Le Panthéon</h2>
             <div className="leaderboard-list">
-                {/* <div className="leaderboard-unique">
-                    <p>Ta position actuelle</p>
-                    <LeaderboardTable users={users} loading={loading}></LeaderboardTable>
-                </div> */}
                 <div className="leaderboard-unique">
                     <p>Le top <span className=" font-up font-b font-i">{leaderboard}</span></p>
                     <LeaderboardTable users={users} loading={loading}></LeaderboardTable>

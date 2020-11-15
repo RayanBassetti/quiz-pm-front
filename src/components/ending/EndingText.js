@@ -21,7 +21,7 @@ function EndingText({score}) {
             return (
                 <>
                     <p className="font-s-24 font-w-300">Pas mal du tout.</p>
-                    <p className="font-s-24 font-w-300">Encore un petit efort pour devenir un.e <span className="font-up font-i font-w-700">badass</span> !</p>
+                    <p className="font-s-24 font-w-300">Encore un petit effort pour devenir un.e <span className="font-up font-i font-w-700">badass</span> !</p>
                 </>
             )
         } else if(score >= 10) {

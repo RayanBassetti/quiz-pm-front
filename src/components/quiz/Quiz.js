@@ -1,19 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import QuizProgression from './QuizProgression'
 import QuizContent from './QuizContent'
 import { QuizContext } from '../contexts/QuizContext';
 
-//todo : setup context pour fetch l'api et avoir les questions
 function Quiz() {
-    const {quiz, progress, loading, bonus} = useContext(QuizContext)
-    console.log(bonus)
+    const {quiz, progress, loadingFetch, bonus, setQuiz} = useContext(QuizContext)
+
+    const [loadingQuiz, setLoadingQuiz] = useState(true)
+
+    useEffect(() => {
+        if(loadingQuiz) {
+            let nextQuiz 
+            nextQuiz = [
+                ...quiz, 
+                bonus
+            ]  
+            setQuiz(nextQuiz)
+            setLoadingQuiz(false)
+        }
+    }, [loadingQuiz, quiz, bonus, setQuiz])
         
     return (
         <div className="quiz-display">
-            {loading &&
+            {loadingFetch && loadingQuiz &&
                 <p>loading...</p>
             }
-            {!loading &&
+            {!loadingFetch && !loadingQuiz &&
             <>
                 <QuizProgression quizData={quiz} progress={progress}/>
                 <QuizContent quizData={quiz[progress]}/>
