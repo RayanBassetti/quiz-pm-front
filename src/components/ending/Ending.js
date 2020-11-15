@@ -4,6 +4,8 @@ import QuizButton from '../common/QuizButton'
 import AnswerDetails from './AnswersDetails'
 
 import { UsersContext } from '../contexts/UsersContext'
+import Background from '../common/Background';
+import EndingText from './EndingText';
 
 function Ending() {
 
@@ -14,10 +16,7 @@ function Ending() {
             <div className="flex-row">
                 <div className="score-panel flex-w-66">
                     <p className="score-result">{score} / 10</p>
-                    <div className="score-text">
-                        <p className="font-s-24 font-w-300">Nos félicitations ! 🥳</p>
-                        <p className="font-s-24 font-w-300">On peut dire que vous êtes réellement <span className="font-up font-i font-w-700">badass</span> !</p>
-                    </div>
+                    <EndingText score={score}/>
                     <p className="font-s-16 font-w-300 score-sub-text">Quel est votre petit nom ? Histoire de noter votre exploit dans le livre des records !</p>
                     {!submitted &&
                     <div className="score-name-input">
@@ -36,7 +35,7 @@ function Ending() {
                 </div>
 
                 <div className="full-height flex-w-33">
-                    <div className="bg-accueil"></div>
+                    <Background />
                 </div>
             </div>
             <AnswerDetails />
